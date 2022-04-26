@@ -1,4 +1,4 @@
-import { IHobby } from '../interfaces';
+import { IHobby } from '../models';
 import React from 'react'
 
 interface IHobbyFormProps {

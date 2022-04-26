@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { IHobby } from "../interfaces";
+import React from "react";
+import { IHobby } from "../models";
 
 interface IHobbyProps {
     hobby: IHobby,

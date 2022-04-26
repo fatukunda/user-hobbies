@@ -1,4 +1,4 @@
-import { IUser } from "../interfaces";
+import { IUser, IUserHobby } from "../models";
 
 const baseUrl = process.env.API_URL;
 const headers = {
@@ -20,7 +20,7 @@ export const addUser = async (data: IUser) => {
     return res.json();
 }
 
-export const updateUserHobbies = async (data) => {
+export const updateUserHobbies = async (data: IUserHobby) => {
     const { id } = data;
     
     const res = await fetch(`${baseUrl}/users/${id}`, {

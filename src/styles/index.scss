@@ -33,7 +33,7 @@
     button {
       -webkit-appearance:none;
       -moz-appearance:none;
-      height: 30px;
+      height: -webkit-fill-available;
       border: 1px solid black;
       cursor: pointer;
     }
@@ -48,6 +48,9 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+      }
+      .selected-user {
+        background-color: lightblue;
       }
     }
     .hobby-container{

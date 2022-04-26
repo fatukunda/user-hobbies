@@ -1,43 +1,43 @@
-import React, { useEffect, useState } from "react"
-import { getUsers, addUser, updateUserHobbies } from "../services/user"
+import React, { useEffect } from "react"
 import User from "../components/User"
 import Hobby from "../components/Hobby"
-import { IHobby, IUser } from "../interfaces"
-import { useFormFields } from "../lib/hooksLib"
+import { IHobby, IUserHobby } from "../models"
+import { useFormFields, useAppDispatch, useAppSelector  } from "../hooks/hooksLib"
 import UserForm from "../components/UserForm"
 import HobbyForm from "../components/HobbyForm"
+import { fetchUsers, setChosenUser, createNewUser, updateUser } from "../store/actions/userActions"
 
 const Home = () => {
     
-  const [ users, setUsers ] = useState([])
-  const [ selectedUser, setSelectedUser ] = useState(null)
   const [ fields, handleFieldChange ] = useFormFields({
     userName: "",
     hobbyName: "",
     passionLevel: "",
     year: ""
   })
-
+  const dispatch = useAppDispatch();
+  const users = useAppSelector(state => state.userReducer.userHobbies)
+  const selectedUser = useAppSelector(state => state.userReducer.selectedUser)
   useEffect(() => {
-    fetchUsers()
-  }, [])
-
-  const fetchUsers = async () => {
-    const data = await getUsers();
-    setUsers(data);
-  }
+    dispatch(fetchUsers())
+  }, [users])
 
   const saveUser = async() => {
+    if (!fields.userName) {
+      return alert('User name is required.')
+    }
     const data = {
       id: users.length + 1,
       name: fields.userName,
       hobbies: []
     }
-    await addUser(data);
-    fetchUsers();
+    dispatch(createNewUser(data))
   }
 
   const addHobby = async () => {
+    if (!fields.hobbyName || !fields.passionLevel || !fields.year) {
+      return alert('All hobby fields are required.')
+    }
     const newHobby = {
       id: selectedUser.hobbies.length + 1,
       name: fields.hobbyName,
@@ -51,9 +51,7 @@ const Home = () => {
         ...selectedUser.hobbies,newHobby
       ]
     }
-    const res = await updateUserHobbies(payload);
-
-    console.log(payload);
+    dispatch(updateUser(payload))
   }
 
   const deleteUserHobby = () => {
@@ -68,11 +66,13 @@ const Home = () => {
               onSetUser={handleFieldChange} 
               onAddUser={saveUser} />
             {
-              users?.map((user: IUser) => (
+              users?.map((user: IUserHobby) => (
                 <User 
                   key={user.id} 
                   user={user} 
-                  onShowUserHobbies= {()=> setSelectedUser(user)} />
+                  onShowUserHobbies= {()=> dispatch(setChosenUser(user))}
+                  isSelected={user.id === selectedUser.id}
+                  />
                 ))
             }
           </div>
@@ -82,20 +82,6 @@ const Home = () => {
               onAddUserHobby={addHobby}
               onSetUserHobby={handleFieldChange} 
             />
-           {/* <div className="row">
-             <div className="column">
-               <input type="text" placeholder="Enter passion level" />
-             </div>
-             <div className="column">
-               <input type="text" placeholder="Enter user hobby" />
-             </div>
-             <div className="column">
-               <input type="text" placeholder="Enter year" />
-             </div>
-             <div className="column">
-               <button>Add</button>
-             </div>
-           </div> */}
            {
              selectedUser && selectedUser.hobbies.length && 
              selectedUser.hobbies.map((hobby: IHobby) => (

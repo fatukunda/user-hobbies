@@ -1,14 +1,15 @@
 import React from "react";
-import { IUser } from "../interfaces";
+import { IUser } from "../models";
 
 interface IUserProps {
     user: IUser,
-    onShowUserHobbies: (event: React.MouseEvent<HTMLDivElement>) => void
+    onShowUserHobbies: (event: React.MouseEvent<HTMLDivElement>) => void,
+    isSelected: boolean
 }
 
-const User = ({ user, onShowUserHobbies } : IUserProps) => {
+const User = ({ user, onShowUserHobbies, isSelected } : IUserProps) => {
     return (
-        <div className="row" onClick={ onShowUserHobbies }>
+        <div className={`row ${isSelected? 'selected-user': ''}` } onClick={ onShowUserHobbies }>
             <div className="column">
                 <div className="username">
                   { user.name }
