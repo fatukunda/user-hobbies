@@ -1,0 +1,48 @@
+{
+  "name": "user-hobbies",
+  "version": "1.0.0",
+  "description": "A simple user hobbies app for my interview with Arive",
+  "main": "index.js",
+  "author": "Frank Atukunda",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-cli serve --mode=development --env development --open --hot",
+    "build": "webpack --mode=production --env production --progress",
+    "lint": "eslint src/**/*.{ts,tsx} --quiet --fix",
+    "runserver": "json-server --watch db.json --port 8000 "
+  },
+  "dependencies": {
+    "fork-ts-checker-webpack-plugin": "^7.2.6",
+    "html-webpack-plugin": "^5.5.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "ts-loader": "^9.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.25",
+    "@types/react": "^18.0.6",
+    "@types/react-dom": "^18.0.2",
+    "@types/webpack": "^5.28.0",
+    "@types/webpack-dev-server": "^4.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.13.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "json-server": "^0.17.0",
+    "node-sass": "^7.0.1",
+    "prettier": "^2.6.2",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "ts-node": "^10.7.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "^4.6.3",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.8.1"
+  }
+}
