@@ -103,28 +103,20 @@
     },
     {
       "id": 7,
-      "name": "Mary",
+      "name": "James",
       "hobbies": []
     },
     {
       "id": 8,
       "name": "Paul",
-      "hobbies": []
-    },
-    {
-      "id": 9,
-      "name": "Samantha",
-      "hobbies": []
-    },
-    {
-      "id": 10,
-      "name": "Brown",
-      "hobbies": []
-    },
-    {
-      "id": 11,
-      "name": "Black",
-      "hobbies": []
+      "hobbies": [
+        {
+          "id": 1,
+          "name": "Ghsgshs",
+          "passionLevel": "Jhsjshh",
+          "year": "2011"
+        }
+      ]
     }
   ]
 }

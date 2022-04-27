@@ -12,7 +12,7 @@ const UserForm = ({ onSetUser, onAddUser, name }: IUserFormProps) => {
             <div className="column">
                 <input 
                     type="text" 
-                    placeholder="Enter Username" 
+                    placeholder="Enter User name" 
                     onChange={onSetUser} 
                     value={name}
                     id="userName"

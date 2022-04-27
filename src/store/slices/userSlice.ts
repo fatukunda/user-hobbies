@@ -4,7 +4,7 @@ import { UserHobbiesModel, IUserHobby } from "../../models"
 const initialState: UserHobbiesModel = {
     userHobbies: [],
     selectedUser: {
-        id: 0,
+        id: null,
         name: '',
         hobbies: []
     }

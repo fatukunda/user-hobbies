@@ -3,11 +3,12 @@ import React from 'react'
 
 interface IHobbyFormProps {
     onAddUserHobby: (event: React.MouseEvent<HTMLButtonElement>) => void,
-    onSetUserHobby: React.ChangeEventHandler<HTMLInputElement>,
-    hobby: IHobby
+    onSetUserHobby: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement>,
+    hobby: IHobby,
+    disabled: boolean
 }
 
-const HobbyForm = ({ onSetUserHobby, onAddUserHobby, hobby }: IHobbyFormProps) => {
+const HobbyForm = ({ onSetUserHobby, onAddUserHobby, hobby, disabled }: IHobbyFormProps) => {
     return (
         <div className="row">
             <div className="column">
@@ -17,8 +18,8 @@ const HobbyForm = ({ onSetUserHobby, onAddUserHobby, hobby }: IHobbyFormProps) =
                 placeholder="Enter passion level" 
                 onChange={onSetUserHobby} 
                 id="passionLevel"
+                disabled={disabled}
                 />
-
             </div>
             <div className="column">
                <input 
@@ -27,15 +28,19 @@ const HobbyForm = ({ onSetUserHobby, onAddUserHobby, hobby }: IHobbyFormProps) =
                 placeholder="Enter user hobby"
                 onChange={onSetUserHobby} 
                 id="hobbyName"
+                disabled={disabled}
                  />
             </div>
             <div className="column">
                <input 
                 value={hobby.year} 
-                type="text" 
+                type="number" 
                 placeholder="Enter year"
                 onChange={onSetUserHobby}
                 id="year" 
+                maxLength={4}
+                minLength={4}
+                disabled={disabled}
                 />
             </div>
             <div className="column">

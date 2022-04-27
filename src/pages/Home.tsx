@@ -6,6 +6,7 @@ import { useFormFields, useAppDispatch, useAppSelector  } from "../hooks/hooksLi
 import UserForm from "../components/UserForm"
 import HobbyForm from "../components/HobbyForm"
 import { fetchUsers, setChosenUser, createNewUser, updateUser } from "../store/actions/userActions"
+import { capitalize, validatePassionLevels } from "../helpers"
 
 const Home = () => {
     
@@ -20,7 +21,7 @@ const Home = () => {
   const selectedUser = useAppSelector(state => state.userReducer.selectedUser)
   useEffect(() => {
     dispatch(fetchUsers())
-  }, [users])
+  }, [])
 
   const saveUser = async() => {
     if (!fields.userName) {
@@ -28,20 +29,22 @@ const Home = () => {
     }
     const data = {
       id: users.length + 1,
-      name: fields.userName,
+      name: capitalize(fields.userName),
       hobbies: []
     }
     dispatch(createNewUser(data))
+    dispatch(fetchUsers())
   }
 
   const addHobby = async () => {
     if (!fields.hobbyName || !fields.passionLevel || !fields.year) {
       return alert('All hobby fields are required.')
     }
+    validatePassionLevels(fields.passionLevel)
     const newHobby = {
       id: selectedUser.hobbies.length + 1,
-      name: fields.hobbyName,
-      passionLevel: fields.passionLevel,
+      name: capitalize(fields.hobbyName),
+      passionLevel: capitalize(fields.passionLevel),
       year: fields.year
     }
     const payload = {
@@ -52,6 +55,8 @@ const Home = () => {
       ]
     }
     dispatch(updateUser(payload))
+    dispatch(fetchUsers())
+    dispatch(setChosenUser(payload))
   }
 
   const deleteUserHobby = () => {
@@ -80,10 +85,11 @@ const Home = () => {
             <HobbyForm 
               hobby={{passionLevel: fields.passionLevel, year: fields.year, name: fields.hobbyName }}
               onAddUserHobby={addHobby}
-              onSetUserHobby={handleFieldChange} 
+              onSetUserHobby={handleFieldChange}
+              disabled={!selectedUser.id}
             />
            {
-             selectedUser && selectedUser.hobbies.length && 
+             selectedUser && 
              selectedUser.hobbies.map((hobby: IHobby) => (
                <Hobby key={hobby.id} hobby={hobby} onDeleteUserHobby={deleteUserHobby} />
              ))

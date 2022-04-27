@@ -5,11 +5,9 @@ import { setUsers, setSelectedUser } from "../slices/userSlice";
 
 
 export const fetchUsers = () : AppThunk => {
-    return async(dispatch, getState) => {
-        if (getState().userReducer.userHobbies.length === 0) {
+    return async(dispatch) => {
             const res : IUserHobby[] = await getUsers();
             dispatch(setUsers(res))
-        }
     }
 }
 
@@ -20,7 +18,7 @@ export const setChosenUser = (selectedUser: IUserHobby): AppThunk => {
 }
 
 export const createNewUser = (userData: IUserHobby): AppThunk => {
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         const res: IUserHobby = await addUser(userData)
     }
 }
