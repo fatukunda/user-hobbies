@@ -35,6 +35,7 @@ const Home = () => {
     }
     dispatch(createNewUser(data))
     dispatch(fetchUsers())
+    fields.userName = ''
   }
 
   const fetchUserHobbies = (user: IUser) => {
@@ -65,6 +66,9 @@ const Home = () => {
     }
     dispatch(addHobby(payload))
     dispatch(getAllUserHobbies(selectedUser.id))
+    fields.hobbyName = ''
+    fields.passionLevel = ''
+    fields.year = ''
   }
 
   const removeUserHobby = async (hobby: IUserHobby) => {

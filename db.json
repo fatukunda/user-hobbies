@@ -15,6 +15,10 @@
     {
       "id": 4,
       "name": "Jack"
+    },
+    {
+      "id": 5,
+      "name": "Paul"
     }
   ],
   "user-hobbies": [
@@ -59,6 +63,13 @@
       "year": "2018",
       "user_id": 4,
       "id": 6
+    },
+    {
+      "name": "Watching tv",
+      "passionLevel": "Low",
+      "year": "2016",
+      "user_id": 5,
+      "id": 7
     }
   ]
 }
