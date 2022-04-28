@@ -3,29 +3,16 @@ export interface IUser {
     name: string
 }
 
-export interface IHobby {
+export interface IUserHobby {
     id?: number,
     name: string
     passionLevel: string,
     year: number
+    user_id?: number
 }
-
-export interface IUserHobby {
-    id: number,
-    name: string,
-    hobbies: IHobby[]
-}
-
-export interface IUserHobbies {
-    userHobbies: IUserHobby[]
-}
-
-export interface IUsers {
-    users: IUser[]
-}
-
 export interface UserHobbiesModel {
+    users: IUser[]
     userHobbies:IUserHobby[],
-    selectedUser: IUserHobby
+    selectedUser: IUser
 }
 

@@ -20,13 +20,24 @@ export const addUser = async (data: IUser) => {
     return res.json();
 }
 
-export const updateUserHobbies = async (data: IUserHobby) => {
-    const { id } = data;
-    
-    const res = await fetch(`${baseUrl}/users/${id}`, {
-        method: 'PUT',
+export const getUserHobbies = async (userId: number) => {
+    const res = await fetch(`${baseUrl}/user-hobbies?user_id=${userId}`, { headers});
+    return res.json();
+}
+
+export const addUserHobby = async (data:IUserHobby) => {
+    const res = await fetch(`${baseUrl}/user-hobbies`, {
+        method: 'POST',
         headers,
         body: JSON.stringify(data)
+    })
+}
+
+export const deleteUserHobby = async (id: number) => {
+    
+    const res = await fetch(`${baseUrl}/user-hobbies/${id}`, {
+        method: 'DELETE',
+        headers,
     })
     return res.json();
 }

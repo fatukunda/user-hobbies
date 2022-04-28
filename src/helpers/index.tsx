@@ -4,12 +4,11 @@ export const capitalize = (text: string) => {
 }
 
 // Validate passion levels
-export const validatePassionLevels = (receivedPassionLevel: string) => {
+export const isAcceptablePassionLevel = (receivedPassionLevel: string) => {
     const acceptedOptions = ['Low', 'Medium', 'High', 'Very-High']
     const passionLevel = capitalize(receivedPassionLevel)
-    if (!acceptedOptions.includes(passionLevel)) {
-      return alert(`Passion level you provided is not an acceptable option.
-        Acceptable options include ${acceptedOptions.toString()}
-      `)
+    if (acceptedOptions.includes(passionLevel)) {
+      return true
     }
+    return false
 }

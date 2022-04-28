@@ -1,10 +1,10 @@
-import { IHobby } from '../models';
+import { IUserHobby } from '../models';
 import React from 'react'
 
 interface IHobbyFormProps {
     onAddUserHobby: (event: React.MouseEvent<HTMLButtonElement>) => void,
     onSetUserHobby: React.ChangeEventHandler<HTMLInputElement | HTMLSelectElement>,
-    hobby: IHobby,
+    hobby: IUserHobby,
     disabled: boolean
 }
 

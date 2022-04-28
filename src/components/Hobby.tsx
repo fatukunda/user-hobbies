@@ -1,8 +1,8 @@
 import React from "react";
-import { IHobby } from "../models";
+import { IUserHobby } from "../models";
 
 interface IHobbyProps {
-    hobby: IHobby,
+    hobby: IUserHobby,
     onDeleteUserHobby: (event: React.MouseEvent<HTMLDivElement>) => void
 }
 

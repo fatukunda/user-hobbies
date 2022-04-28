@@ -2,121 +2,63 @@
   "users": [
     {
       "id": 1,
-      "name": "John",
-      "hobbies": [
-        {
-          "id": 1,
-          "name": "Playing football",
-          "passionLevel": "Medium",
-          "year": "2014"
-        },
-        {
-          "id": 2,
-          "name": "Listening to Music",
-          "passionLevel": "High",
-          "year": "2007"
-        },
-        {
-          "id": 3,
-          "name": "Going to Concert",
-          "passionLevel": "Low",
-          "year": "2015"
-        },
-        {
-          "id": 4,
-          "name": "Coding",
-          "passionLevel": "Very-High",
-          "year": "2016"
-        }
-      ]
+      "name": "John"
     },
     {
       "id": 2,
-      "name": "Peter",
-      "hobbies": [
-        {
-          "id": 3,
-          "name": "Going to Concert",
-          "passionLevel": "Very-High",
-          "year": "2012"
-        },
-        {
-          "id": 1,
-          "name": "Playing football",
-          "passionLevel": "High",
-          "year": "2013"
-        }
-      ]
+      "name": "Peter"
     },
     {
       "id": 3,
-      "name": "Marcus",
-      "hobbies": [
-        {
-          "id": 2,
-          "name": "Listening to Music",
-          "passionLevel": "High",
-          "year": "2007"
-        },
-        {
-          "id": 2,
-          "name": "Dancing",
-          "passionLevel": "Low",
-          "year": "2000"
-        }
-      ]
+      "name": "Marcus"
     },
     {
       "id": 4,
-      "name": "James",
-      "hobbies": [
-        {
-          "id": 1,
-          "name": "Gaming",
-          "passionLevel": "High",
-          "year": "2020"
-        }
-      ]
+      "name": "Jack"
+    }
+  ],
+  "user-hobbies": [
+    {
+      "id": 1,
+      "name": "Playing football",
+      "passionLevel": "Medium",
+      "year": "2014",
+      "user_id": "1"
     },
     {
-      "id": 5,
-      "name": "Frank",
-      "hobbies": [
-        {
-          "id": 1,
-          "name": "Watching TV",
-          "passionLevel": "High",
-          "year": "2002"
-        },
-        {
-          "id": 2,
-          "name": "Riding a bike",
-          "passionLevel": "High",
-          "year": "1992"
-        }
-      ]
+      "id": 2,
+      "name": "Listening to Music",
+      "passionLevel": "High",
+      "year": "2007",
+      "user_id": "1"
     },
     {
-      "id": 6,
-      "name": "Luke",
-      "hobbies": []
+      "id": 3,
+      "name": "Going to Concert",
+      "passionLevel": "Low",
+      "year": "2015",
+      "user_id": "2"
     },
     {
-      "id": 7,
-      "name": "James",
-      "hobbies": []
+      "id": 4,
+      "name": "Coding",
+      "passionLevel": "Very-High",
+      "year": "2016",
+      "user_id": "1"
     },
     {
-      "id": 8,
-      "name": "Paul",
-      "hobbies": [
-        {
-          "id": 1,
-          "name": "Ghsgshs",
-          "passionLevel": "Jhsjshh",
-          "year": "2011"
-        }
-      ]
+      "name": "Singing",
+      "passionLevel": "High",
+      "year": "2017",
+      "user_id": 3,
+      "id": 5
+    },
+    {
+      "name": "Singing",
+      "passionLevel": "Low",
+      "year": "2018",
+      "user_id": 4,
+      "id": 6
     }
   ]
 }
