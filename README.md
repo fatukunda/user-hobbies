@@ -20,5 +20,6 @@
 ### Improvements to be made
 
 -   Write Unit tests
--   Improve the UI
+-   Improve the UI and mobile responsiveness
 -   Re-structure the styles
+-   Improve error handling in services
