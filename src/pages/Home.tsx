@@ -30,7 +30,6 @@ const Home = () => {
       return
     }
     const data = {
-      id: users.length + 1,
       name: capitalize(fields.userName)
     }
     dispatch(createNewUser(data))
