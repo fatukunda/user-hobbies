@@ -11,7 +11,8 @@
 ### Technologies used
 
 -   React 18
--   Webpack
+-   Typescript
+-   Webpack 5
 -   Redux Toolkit
 -   Sass
 -   json-server
